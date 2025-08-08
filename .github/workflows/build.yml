@@ -20,7 +20,7 @@ jobs:
           cd CascadeBlocks
           make
       - name: Upload ROM
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CascadeBlocks-nds
           path: CascadeBlocks/CascadeBlocks.nds
