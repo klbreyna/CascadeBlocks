@@ -1,0 +1,26 @@
+name: Build NDS
+
+on:
+  workflow_dispatch:
+    push:
+        branches:
+              - main
+
+              jobs:
+                build:
+                    runs-on: ubuntu-latest
+                        container:
+                              image: devkitpro/devkitarm:latest
+                                  steps:
+                                        - uses: actions/checkout@v2
+                                              - name: Extract source
+                                                      run: unzip CascadeBlocks.zip -d .
+                                                            - name: Build
+                                                                    run: |
+                                                                              cd CascadeBlocks
+                                                                                        make
+                                                                                              - name: Upload ROM
+                                                                                                      uses: actions/upload-artifact@v2
+                                                                                                              with:
+                                                                                                                        name: CascadeBlocks-nds
+                                                                                                                                  path: CascadeBlocks/CascadeBlocks.nds
