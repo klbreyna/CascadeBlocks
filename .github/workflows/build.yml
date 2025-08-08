@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Extract source
-        run: unzip CascadeBlocks.zip -d .
+        run: unzip -o CascadeBlocks.zip -d .
       - name: Build
         run: |
           cd CascadeBlocks
